@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>READ ME</title>
+    <style>
+
+        .tracking-in-contract-bck {
+            animation: tracking-in-contract-bck 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.8s forwards;
+        }
+
+        /**
+        * ----------------------------------------
+        * animation tracking-in-contract-bck
+        * ----------------------------------------
+        */
+        @keyframes tracking-in-contract-bck {
+        0% {
+            letter-spacing: 1em;
+            transform: translateZ(400px);
+            opacity: 0;
+        }
+        40% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateZ(0);
+            opacity: 1;
+        }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Changed to min-height */
+            background-color: #f5e4c3; /* Beige background */
+        }
+
+        .kid-theme {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 4rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .kid-theme2 {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 2rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        /* iba nanamn */
+        .tracking-out-contract {
+            animation: tracking-out-contract 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+
+        @keyframes tracking-out-contract {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            letter-spacing: -0.5em;
+            opacity: 0;
+        }
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .kid-theme {
+                font-size: 3rem;
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .kid-theme {
+                font-size: 2rem;
+                padding: 10px;
+            }
+        }
+
+        .none{
+            display: none;
+        }
+
+
+        .containertyping{
+            display: inline-block;
+            font-family: "arial";
+            font-size: 24px;
+            }
+
+            .typed {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing;
+            animation-duration: 1.9s;
+            animation-timing-function: steps(30, end);
+            animation-fill-mode: forwards;
+            }
+            
+            @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+            }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="tracking-in-contract-bck kid-theme" id="h1">Hello, welcome!</h1>
+        <!-- typing -->
+        <div class="containertyping none type-contain">
+            <p class="typed kid-theme2 none" id="type-text">So, someone here wants to ask you something very important!</p>
+        </div>
+        
+
+        <div class="background-video none" id="video">
+            <video autoplay loop muted>
+              <source src="PROP.mp4" type="video/mp4">
+              <!-- Include additional video formats here for cross-browser compatibility -->
+            </video>
+          </div>
+    </div>
+    <script>
+        let getElement = document.getElementById('type-text')
+        let getContain = document.getElementById('type-contain')
+
+        window.onload = () => {
+            setTimeout(() => {
+                const h1 = document.getElementById('h1')
+                h1.classList.add('tracking-out-contract')
+            }, 5000);
+            setTimeout(() => {
+                getElement.classList.remove('none')
+                getContain.classList.remove('none')
+            }, 6000);
+            setTimeout(() => {
+                removeDOM();
+            }, 9000);
+            setTimeout(() => {
+                appearDOM();
+            }, 10000);
+        };
+
+        function appearDOM(){
+            document.getElementById('video').classList.remove('none')
+        }
+
+        function removeDOM(){
+            getElement.classList.add('none')
+            getContain.classList.add('none')
+        }
+    </script>
+</body>
+</html>
