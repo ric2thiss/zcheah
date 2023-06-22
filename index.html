@@ -149,7 +149,14 @@
 
             .btnClose{
                 padding: 10px;
-                margin: auto;
+                cursor: pointer;
+            }
+
+            .btnYes{
+                padding: 10px;
+                font-size: 3rem;
+                padding: 0 50px;
+                cursor: pointer;
             }
 
     </style>
@@ -162,9 +169,10 @@
             <p class="typed kid-theme2 none" id="type-text">So, someone here wants to ask you something very important!</p>
         </div>
         <dialog id="myDialog">
-            <img src="profile1.jpg" class="profile" alt="">
-            <img src="profile2.jpg" class="profile" alt="">
-            <center><h1 class="animated-text">PLEASE SAY YES!</h1></center>
+            <img src="profile1.jpg" id="zia" class="profile" alt="">
+            <img src="profile2.jpg" id="zach" class="profile" alt="">
+            <center><h1 class="animated-text" id="sayyesh1">PLEASE SAY YES!</h1></center>
+            <center><button class="btnYes" onclick="saidYes()">Yes</button></center>
             <button class="btnClose" onclick="closeDialog()">Close</button>
           </dialog>
         
@@ -217,6 +225,16 @@
 
         function closeDialog() {
             document.getElementById('myDialog').close();
+        }
+
+        const zach = document.getElementById('zach')
+        const zia = document.getElementById('zia')
+        const sayyesh1 = document.getElementById('sayyesh1')
+        function saidYes(){
+            zia.src = 'smilezia.jpg';
+            zach.src = 'zach1.jpg';
+            // sayyesh1.style.display='none'
+            sayyesh1.innerHTML = `Gift first hahahah`
         }
     </script>
 </body>
